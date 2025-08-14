@@ -47,3 +47,8 @@ def register_user(request):
          else:
             messages.error(request, "Registration failed. Please correct the errors below.")
     return render(request, 'store/register.html', {"form": form})
+
+
+def product(request, id):
+    product = Product.objects.get(id=id)
+    return render(request, 'store/product.html', {"product": product})
